@@ -24,21 +24,21 @@ function preload(){
 function setup() {
   createCanvas(400, 400);
   
-  //creating background
+  //crear fondo
   scene = createSprite(0,0,400,400);
   scene.addImage(backgroundImage);
   scene.scale = 2.5
   
-  // creating bow to shoot arrow
+  //crear arco para disparar flechas
   bow = createSprite(380,220,20,50);
   bow.addImage(bowImage); 
   bow.scale = 1;
   
    score = 0  
   redB= new Group();
-  //Create a group for greenBalloon
- //Create a group for blueBalloon
- //Create a group for pinkBalloon
+  //Crear un grupo para greenBalloon (globo verde)
+ //Crear un grupo para blueBalloon (globo azul)
+ //Crear un grupo para pinkBalloon (globo rosa)
   
   arrowGroup= new Group();
  
@@ -49,23 +49,23 @@ function draw() {
  background(0);
  if(gameState === PLAY){
 
-  // moving ground
+  //mover el suelo
     scene.velocityX = -3 
 
     if (scene.x < 0){
       scene.x = scene.width/2;
     }
   
-  //moving bow
+  //mover el arco
   bow.y = World.mouseY
   
-   // release arrow when space key is pressed
+   //liberar la flecha al presionar la barra espaciadora
   if (keyDown("space")) {
     createArrow();
     
   }
   
-  //creating continous enemies
+  //crear enemigos continuos
   var select_balloon = Math.round(random(1,4));
   
   if (World.frameCount % 100 == 0) {
@@ -96,28 +96,28 @@ function draw() {
 }
 
  
-//Create the isTouching() 
-//Use destroyEach() to destroy the greenBalloon
-//Use destroyEach() to destroy arrowGroup.
-//Increment the score by 3.
+//Crear isTouching() 
+//Usar destroyEach() para destruir greenBalloon
+//Usar destroyEach() para destruir arrowGroup.
+//Incrementar la puntuación por 3.
 
 
 
-//Create the isTouching() 
-//Use destroyEach() to destroy the blueBalloon
-//Use destroyEach() to destroy arrowGroup.
-//Increment the score by 2.
+//Crear isTouching() 
+//Usar destroyEach() para destruir blueBalloon
+//Usar destroyEach() para destruir arrowGroup.
+//Incrementar la puntuación por 2.
 
 
-//Create the isTouching()
-//Use destroyEach() to destroy the pinkBalloon group
-//Use destroyEach() to destroy arrowGroup.
-//Increment the score by 1.
+//Crear isTouching()
+//Usar destroyEach() para destruir el grupo pinkBalloon
+//Usar destroyEach() para destruir arrowGroup.
+//Incrementar la puntuación por 1.
 
  }
   
   drawSprites();
-  text("Score: "+ score, 300,50);
+  text("Puntuación: "+ score, 300,50);
 }
 
 
@@ -136,7 +136,7 @@ function blueBalloon() {
   blue.velocityX = 3;
   blue.lifetime = 150;
   blue.scale = 0.1;
- //Add the group
+ //Agregar el grupo
 }
 
 function greenBalloon() {
@@ -145,7 +145,7 @@ function greenBalloon() {
   green.velocityX = 3;
   green.lifetime = 150;
   green.scale = 0.1;
-  //Add the group
+  //Agregar el grupo
 }
 
 function pinkBalloon() {
@@ -154,11 +154,11 @@ function pinkBalloon() {
   pink.velocityX = 3;
   pink.lifetime = 150;
   pink.scale = 1
- //Add the group
+ //Agregar el grupo
 }
 
 
-// Creating  arrows for bow
+//Crear flechas para el arco
  function createArrow() {
   var arrow= createSprite(100, 100, 60, 10);
   arrow.addImage(arrowImage);
